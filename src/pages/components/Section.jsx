@@ -4,7 +4,7 @@ import "../../css/section.css";
 const Section = ({ data }) => {
   return (
     <section
-      style={{ backgroundImage: `url(${data.img})` }}
+      style={{ backgroundImage: `url(${data.img})`, height: (data.id === 4 ? "74vh": "100vh") }}
       className="container-fluid"
       id={`sec${data.id}`}
     >

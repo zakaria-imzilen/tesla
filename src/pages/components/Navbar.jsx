@@ -3,7 +3,7 @@ import TeslaLogo from "./images/tesla.png";
 import "../../css/Navbar.css";
 import { Link } from "react-router-dom";
 
-const Navbar = () => {
+const Navbar = ({ menuSte }) => {
   const [menu, setMenu] = useState(false);
 
   const renderAsideClasses = () => {
@@ -18,21 +18,26 @@ const Navbar = () => {
         <div className="d-flex gap-2 align-items-center">
           <img src={TeslaLogo} alt="Tesla Logo" width={40} />
           <span style={{ fontFamily: "Athene", fontSize: "1.5rem" }}>
-            TESLA
+            <Link to="/">TESLA</Link>
           </span>
         </div>
-        <button
-          className="btn bg-secondary bg-opacity-25 rounded-1 fw-bold"
-          onClick={() => setMenu(!menu)}
-          id="btn-toggler"
-        >
-          Menu
-        </button>
-        <div id="list-toggle" className="d-flex gap-3">
-          <Link to="/account">
-            <span className="fs-6 font-monospace fw-bold">Account</span>
-          </Link>
-        </div>
+        {menuSte && (
+          <>
+            <button
+              className="btn bg-secondary bg-opacity-25 rounded-1 fw-bold"
+              onClick={() => setMenu(!menu)}
+              id="btn-toggler"
+            >
+              Menu
+            </button>
+
+            <div id="list-toggle" className="d-flex gap-3">
+              <Link to="/account">
+                <span className="fs-6 font-monospace fw-bold">Account</span>
+              </Link>
+            </div>
+          </>
+        )}
       </div>
 
       <aside className={renderAsideClasses()}>

@@ -30,7 +30,7 @@ const Home = () => {
 
   return (
     <main>
-      <Navbar />
+      <Navbar menuSte={true} />
       {sectionsData.map((section) => (
         <Section data={section} key={section.id} />
       ))}

@@ -1,0 +1,11 @@
+footer {
+    flex-direction: column;
+    gap: .8rem;
+}
+
+@media all and (min-width: 548px) {
+    footer {
+        gap: 1.5rem;
+        flex-direction: row !important;
+    }
+}
