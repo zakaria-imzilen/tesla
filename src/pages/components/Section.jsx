@@ -11,9 +11,9 @@ const Section = ({ data }) => {
       <div className="content d-flex flex-column justify-content-between">
         <div className="col text-center">
           <h1 className="display-2 mb-0">{data.title}</h1>
-          <span className="fs-6 text-center fw-bold">
-            Schedule a test drive
-          </span>
+          <Link to="/testdrive" className="fs-6 text-center fw-bold">
+            <u className="fw-semibold font-monospace">Schedule a test drive</u>
+          </Link>
         </div>
 
         <Link className="row gap-2" to="/testdrive">

@@ -73,6 +73,13 @@ const Signup = () => {
         >
           <Link to="/signuptwo">Next</Link>
         </button>
+        <p
+          className="mt-3 btn fw-semibold text-secondary d-block w-100 m-auto"
+          disabled
+          style={{fontSize: ".8rem"}}
+        >
+          <Link to="/signin"><u>Already have an account ? Try signing in</u></Link>
+        </p>
       </form>
 
       <Footer fixedBottom={true} />

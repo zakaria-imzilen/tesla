@@ -30,7 +30,7 @@ const Signin = () => {
           <u style={{ cursor: "no-drop" }}>Trouble Signing in ?</u>
         </p>
 
-        <div className="my-5 d-flex container w-100 align-items-center gap-3 justify-content-center">
+        <div className="my-3 d-flex container w-100 align-items-center gap-3 justify-content-center">
           <u className="w-25 border border-dark border-opacity-25"></u>
           <span className="text-secondary fw-semibold">Or</span>
           <u className="w-25 border border-dark border-opacity-25"></u>
