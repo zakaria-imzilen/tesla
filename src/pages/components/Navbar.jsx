@@ -32,7 +32,7 @@ const Navbar = ({ menuSte }) => {
             </button>
 
             <div id="list-toggle" className="d-flex gap-3">
-              <Link to="/account">
+              <Link to="/signup">
                 <span className="fs-6 font-monospace fw-bold">Sign Up</span>
               </Link>
             </div>
