@@ -33,7 +33,7 @@ const Navbar = ({ menuSte }) => {
 
             <div id="list-toggle" className="d-flex gap-3">
               <Link to="/account">
-                <span className="fs-6 font-monospace fw-bold">Account</span>
+                <span className="fs-6 font-monospace fw-bold">Sign Up</span>
               </Link>
             </div>
           </>
@@ -44,8 +44,8 @@ const Navbar = ({ menuSte }) => {
         <div className="d-block text-end">
           <i onClick={() => setMenu(!menu)} className="bi bi-x-circle-fill"></i>
         </div>
-        <Link to="/account">
-          <h4 className="display-6 text-start my-5">Account</h4>
+        <Link to="/signup">
+          <h4 className="display-6 text-start my-5">Sign Up</h4>
         </Link>
       </aside>
     </nav>
