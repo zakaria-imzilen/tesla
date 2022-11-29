@@ -7,7 +7,7 @@ const Signin = () => {
   return (
     <>
       <Navbar menuSte={false} />
-      <form className="w-75">
+      <form className="w-50">
         <h1 className="display-2 w-100 mb-5">Sign in</h1>
 
         <div className="my-3">
@@ -36,7 +36,7 @@ const Signin = () => {
           <u className="w-25 border border-dark border-opacity-25"></u>
         </div>
 
-        <button className="btn bg-secondary bg-opacity-10 fw-semibold d-block w-50 m-auto">
+        <button className="btn bg-secondary bg-opacity-10 fw-semibold d-block w-100 m-auto ">
           <Link to="/signup">Create Account</Link>
         </button>
       </form>

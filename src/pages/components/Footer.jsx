@@ -5,7 +5,7 @@ const Footer = ({ fixedBottom }) => {
     <footer
       className={`${
         fixedBottom && "position-absolute bottom-0"
-      } container-fluid bg-light py-4 px-3 d-flex text-secondary justify-content-center`}
+      } container-fluid bg-light py-4 px-3 d-flex flex-wrap text-secondary justify-content-center`}
     >
       <h6 className="fw-semibold text-center">
         Tesla © {new Date().getFullYear()}
