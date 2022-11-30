@@ -1,0 +1,22 @@
+main {
+  width: 90% !important;
+}
+
+#testDrive main button {
+  width: 100% !important;
+}
+
+#testDrive main button:focus-visible,
+#testDrive main button:hover {
+  background-color: transparent !important;
+  color: gray;
+}
+
+@media all and (min-width: 500px) {
+  main {
+    width: 50% !important;
+  }
+  #testDrive main button {
+    width: 22.5% !important;
+  }
+}
