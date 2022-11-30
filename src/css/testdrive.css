@@ -1,4 +1,4 @@
-main {
+#testDrive main {
   width: 90% !important;
 }
 
@@ -13,7 +13,7 @@ main {
 }
 
 @media all and (min-width: 500px) {
-  main {
+  #testDrive main {
     width: 50% !important;
   }
   #testDrive main button {
