@@ -1,10 +1,8 @@
-import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleFeature } from "../../app/customOrderSlice";
 import { GrayP, WhiteP } from "../images";
 
 const Wheels = ({ wheels }) => {
-  const [now, setNow] = useState(0);
   const customOrder = useSelector((state) => state.customOrder);
   const dispatch = useDispatch();
 
@@ -13,26 +11,24 @@ const Wheels = ({ wheels }) => {
       <h3 className="text-center display-5 fw-regular">Wheels</h3>
 
       <div className="my-4 d-flex gap-3 justify-content-center">
-        <img
-          onClick={() => dispatch(toggleFeature({ name: "wheels", num: 0 }))}
-          src={WhiteP}
-          alt=""
-          width="40"
-        />
-        <img
-          onClick={() => dispatch(toggleFeature({ name: "wheels", num: 1 }))}
-          src={GrayP}
-          alt=""
-          width="40"
-        />
+        {wheels.map((wheel) => (
+          <img
+            key={wheel.id}
+            onClick={() =>
+              dispatch(toggleFeature({ name: "wheels", num: wheel.id }))
+            }
+            src={wheel.id === 0 ? WhiteP : GrayP}
+            alt=""
+            width="40"
+          />
+        ))}
       </div>
       <p className="text-center">
         <span className="text-dark">{wheels[customOrder.wheels].name} </span>
         <span className="text-secondary">
           {wheels[customOrder.wheels].price === 0
             ? "Included"
-            : "$" + wheels[customOrder.wheels].price}
-          {' '}
+            : "$" + wheels[customOrder.wheels].price}{" "}
         </span>
         <span className="text-secondary text-center">
           {wheels[customOrder.wheels].season}-Season Tires

@@ -15,6 +15,32 @@ import {
   xInteriorWhiteImg,
   xInteriorCreamImg,
   xWheelSecondImg,
+  xWheelFirstImg,
+  paintGrayThreeImg,
+  MainThreeImg,
+  paintBlueThreeImg,
+  paintBlackThreeImg,
+  paintRedThreeImg,
+  interiorBlackThreeImg,
+  interiorBlack_and_WhiteThreeImg,
+  wheelsThreeecondThreeImg,
+  MainSImg,
+  paintGraySImg,
+  paintBlueSImg,
+  paintBlackSImg,
+  paintRedSImg,
+  interiorBlackSImg,
+  interiorBlack_and_WhiteSImg,
+  interiorCreamSImg,
+  wheelsSecondSImg,
+  MainYImg,
+  paintGrayYImg,
+  paintBlueYImg,
+  paintBlackYImg,
+  paintRedYImg,
+  interiorBlackYImg,
+  interiorBlack_and_WhiteYImg,
+  wheelsYSecondImg,
 } from "./images";
 
 import modelXData from "../../ModelX.json";
@@ -45,22 +71,27 @@ const CustomOrder = () => {
   const [data, setData] = useState({});
 
   const user = useSelector((state) => state.user);
+  const customOrderRedux = useSelector((state) => state.customOrder);
   const navigate = useNavigate();
 
   useEffect(() => {
     switch (car) {
-      case "modelX":
+      case "modelx":
         setData(modelXData);
         break;
       case "model3":
         setData(model3Data);
         break;
-      case "modelY":
+      case "modely":
         setData(modelYData);
         break;
 
-      default:
+      case "models":
         setData(modelSData);
+        break;
+
+      default:
+        navigate("/");
         break;
     }
   }, []);
@@ -84,21 +115,113 @@ const CustomOrder = () => {
 
   const renderImg = (imgName) => {
     switch (car) {
-      case "modelX":
+      case "modelx":
         switch (imgName) {
           case "main":
             return xT;
           case "paint":
-            return [xT, blackXImg, grayXImg, blueXImg, redXImg];
+            return [xT, grayXImg, blueXImg, blackXImg, redXImg];
           case "interior":
             return [xInteriorBlackImg, xInteriorWhiteImg, xInteriorCreamImg];
-          case "wheel":
-            return [xT, xWheelSecondImg];
+          case "wheels":
+            return [xWheelFirstImg, xWheelSecondImg];
         }
         break;
-
-      default:
+      case "model3":
+        switch (imgName) {
+          case "main":
+            return MainThreeImg;
+          case "paint":
+            return [
+              MainThreeImg,
+              paintGrayThreeImg,
+              paintBlueThreeImg,
+              paintBlackThreeImg,
+              paintRedThreeImg,
+            ];
+          case "interior":
+            return [interiorBlackThreeImg, interiorBlack_and_WhiteThreeImg];
+          case "wheels":
+            return [MainThreeImg, wheelsThreeecondThreeImg];
+        }
         break;
+      case "models":
+        switch (imgName) {
+          case "main":
+            return MainSImg;
+          case "paint":
+            return [
+              MainSImg,
+              paintGraySImg,
+              paintBlueSImg,
+              paintBlackSImg,
+              paintRedSImg,
+            ];
+          case "interior":
+            return [
+              interiorBlackSImg,
+              interiorBlack_and_WhiteSImg,
+              interiorCreamSImg,
+            ];
+          case "wheels":
+            return [MainSImg, wheelsSecondSImg];
+        }
+        break;
+      case "modely":
+        switch (imgName) {
+          case "main":
+            return MainYImg;
+          case "paint":
+            return [
+              MainYImg,
+              paintGrayYImg,
+              paintBlueYImg,
+              paintBlackYImg,
+              paintRedYImg,
+            ];
+          case "interior":
+            return [interiorBlackYImg, interiorBlack_and_WhiteYImg];
+          case "wheels":
+            return [MainYImg, wheelsYSecondImg];
+        }
+        break;
+    }
+  };
+
+  const renderImgClicked = (sectionWanted) => {
+    switch (sectionWanted) {
+      case "main":
+        return renderImg("main");
+      case "paint":
+        switch (customOrderRedux.paint) {
+          case 1:
+            return renderImg("paint")[1];
+          case 2:
+            return renderImg("paint")[2];
+          case 3:
+            return renderImg("paint")[3];
+          case 4:
+            return renderImg("paint")[4];
+
+          default:
+            return renderImg("main");
+        }
+      case "interior":
+        switch (customOrderRedux.interior) {
+          case 0:
+            return renderImg("interior")[0];
+          case 1:
+            return renderImg("interior")[1];
+          case 2:
+            return renderImg("interior")[2];
+        }
+      case "wheels":
+        switch (customOrderRedux.wheels) {
+          case 0:
+            return renderImg("wheels")[0];
+          case 1:
+            return renderImg("wheels")[1];
+        }
     }
   };
 
@@ -110,18 +233,24 @@ const CustomOrder = () => {
         <div id="customOrder" className="d-flex container-fluid">
           <Navbar menuSte={false} homePage={false} />
           <div id="leftSide" className="me-auto w-75">
+            {/* Main image */}
             <article className="d-flex flex-column justify-content-center align-items-center">
               <img src={renderImg("main")} alt="" className="w-75" />
             </article>
+            {/* Paint images */}
             <article className="d-flex flex-column justify-content-center">
-              <img src={yT} alt="" className="w-100" />
+              <img src={renderImgClicked("paint")} alt="" className="w-100" />
             </article>
             <article className="d-flex flex-column justify-content-center">
-              <img src={threeT} alt="" className="w-100" />
+              <img src={renderImgClicked("wheels")} alt="" className="w-100" />
             </article>
             <article
               className="d-flex flex-column justify-content-center"
-              style={{ backgroundImage: `url(${interiorLight})` }}
+              style={{
+                backgroundImage: `url(${renderImgClicked("interior")})`,
+                backgroundPosition: "center",
+                backgroundSize: "cover",
+              }}
               id="interior"
             ></article>
             <article className="d-flex flex-column justify-content-center">

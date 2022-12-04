@@ -1,5 +1,5 @@
 {
-  "id": 1,
+  "id": 0,
   "name": "Model 3",
   "range": 267,
   "topSpeed": 140,
@@ -17,23 +17,23 @@
     }
   ],
   "paint": [
-    { "name": "Pearl White Multi-Coat", "price": 0 },
-    { "name": "Midnight Silver Metallic", "price": 0 },
-    { "name": "Deep Blue Metallic", "price": 1000 },
-    { "name": "Solid Black", "price": 1500 },
-    { "name": "Red Multi-Coat", "price": 2000 }
+    { "id": 0, "name": "Pearl White Multi-Coat", "price": 0 },
+    { "id": 1, "name": "Midnight Silver Metallic", "price": 0 },
+    { "id": 2, "name": "Deep Blue Metallic", "price": 1000 },
+    { "id": 3, "name": "Solid Black", "price": 1500 },
+    { "id": 4, "name": "Red Multi-Coat", "price": 2000 }
   ],
   "wheels": [
-    { "name": "18’’ Aero Wheels", "price": 0, "season": "All", "range": 272 },
+    { "id": 0, "name": "18’’ Aero Wheels", "price": 0, "season": "All", "range": 272 },
     {
-      "name": "19’’ Sport Wheels",
+      "id": 1, "name": "19’’ Sport Wheels",
       "price": 1500,
       "season": "All",
       "range": 267
     }
   ],
   "interior": [
-    { "name": "All Black", "price": 0 },
-    { "name": "Black and White", "price": 1000 }
+    { "id": 0, "name": "All Black", "price": 0 },
+    { "id": 1, "name": "Black and White", "price": 1000 }
   ]
 }

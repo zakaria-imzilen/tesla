@@ -14,7 +14,7 @@ const Navbar = ({ menuSte, homePage }) => {
 
   return (
     <nav
-      className={`position-fixed container-fluid py-2 px-3 ${
+      className={`position-fixed container-fluid py-3 px-3 ${
         !homePage && "bg-light shadow-sm"
       }`}
     >
@@ -41,7 +41,7 @@ const Navbar = ({ menuSte, homePage }) => {
               <Link to="/customorder/model3">
                 <span className="fs-6 font-monospace fw-bold">Model 3</span>
               </Link>
-              <Link to="/customorder/modelY">
+              <Link to="/customorder/modely">
                 <span className="fs-6 font-monospace fw-bold">Model Y</span>
               </Link>
               <Link to="/customorder/modelx">
@@ -53,7 +53,7 @@ const Navbar = ({ menuSte, homePage }) => {
               <Link to="/signup">
                 <span className="fs-6 font-monospace fw-bold">Sign Up</span>
               </Link>
-              <Link to="/signup">
+              <Link to="/signin">
                 <span className="fs-6 font-monospace fw-bold">Sign In</span>
               </Link>
             </div>
@@ -68,7 +68,7 @@ const Navbar = ({ menuSte, homePage }) => {
         <Link to="/customorder/model3">
           <span className="fs-6 font-monospace fw-bold">Model 3</span>
         </Link>
-        <Link to="/customorder/modelY">
+        <Link to="/customorder/modely">
           <span className="fs-6 font-monospace fw-bold">Model Y</span>
         </Link>
         <Link to="/customorder/modelx">
@@ -80,7 +80,7 @@ const Navbar = ({ menuSte, homePage }) => {
         <Link to="/signup">
           <span className="fs-6 font-monospace fw-bold">Sign Up</span>
         </Link>
-        <Link to="/signup">
+        <Link to="/signin">
           <span className="fs-6 font-monospace fw-bold">Sign In</span>
         </Link>{" "}
       </aside>

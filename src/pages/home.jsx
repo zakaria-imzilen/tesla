@@ -23,9 +23,9 @@ const Home = () => {
 
   const sectionsData = [
     { id: 1, title: "Model 3", img: model3Img, urlName: "model3" },
-    { id: 2, title: "Model Y", img: modelYImg, urlName: "modelY" },
-    { id: 3, title: "Model X", img: modelXImg, urlName: "modelX" },
-    { id: 4, title: "Model S", img: modelSImg, urlName: "modelS" },
+    { id: 2, title: "Model Y", img: modelYImg, urlName: "modely" },
+    { id: 3, title: "Model X", img: modelXImg, urlName: "modelx" },
+    { id: 4, title: "Model S", img: modelSImg, urlName: "models" },
   ];
 
   return (

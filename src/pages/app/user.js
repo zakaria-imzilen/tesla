@@ -20,8 +20,18 @@ export const user = createSlice({
         state.userLoggedInData = found[0];
       }
     },
+    signMeUp: (state, { payload }) => {
+      // ⚠⚠  Just log users in
+      state.loggedIn = true;
+      state.userLoggedInData = {
+        id: 1,
+        firstName: payload.firstName,
+        lastName: payload.lastName,
+        email: payload.email,
+      };
+    },
   },
 });
 
 export default user.reducer;
-export const { logMeIn } = user.actions;
+export const { logMeIn, signMeUp } = user.actions;

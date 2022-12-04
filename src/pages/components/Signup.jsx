@@ -1,16 +1,47 @@
 import Footer from "./Footer";
 import Navbar from "./Navbar";
 import "../../css/signup.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import { signMeUp } from "../app/user";
 
 const Signup = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
+  const [pwd, setPwd] = useState("");
+
+  const handleSignUp = (e) => {
+    e.preventDefault();
+
+    const regexEmail =
+      /^[a-zA-Z0-9.! #$%&'*+/=? ^_`{|}~-]+@[a-zA-Z0-9-]+(?:\. [a-zA-Z0-9-]+)*$/;
+
+    if (firstName.length < 3) {
+      alert("First Name should be at least 4 characters");
+    } else if (lastName.length < 3) {
+      alert("Last Name should be at least 4 characters");
+    } else if (regexEmail.test(email)) {
+      alert("Enter a valid email format");
+    } else if (pwd.length < 7) {
+      alert("Password should be at least 8 characters");
+    } else {
+      // Everything is okay
+      // Just log you in, not sign in you up
+      dispatch(signMeUp({ firstName, lastName, email }));
+      navigate("/");
+    }
+  };
+
   return (
-    <div id='signup' className="position-relative" style={{ height: "100vh" }}>
+    <div id="signup" className="position-relative">
       <Navbar menuSte={false} />
 
-      <form className="w-75">
-        <span className="text-secondary text-monospace">Steps 1 of 2</span>
-
+      <form className="w-75 position-fixed top-50 start-50 translate-middle">
         <h1 className="display-2 w-100 mb-5">Create Account</h1>
 
         <div className="my-3">
@@ -26,6 +57,8 @@ const Signup = () => {
             name="firstName"
             id="firstName"
             aria-describedby="helpId"
+            value={firstName}
+            onChange={({ target }) => setFirstName(target.value)}
           />
         </div>
 
@@ -42,6 +75,44 @@ const Signup = () => {
             name="lastName"
             id="lastName"
             aria-describedby="helpId"
+            value={lastName}
+            onChange={({ target }) => setLastName(target.value)}
+          />
+        </div>
+
+        <div className="my-3">
+          <label
+            htmlFor="email"
+            className="form-label text-secondary fw-semibold"
+          >
+            Email
+          </label>
+          <input
+            type="email"
+            className="form-control bg-secondary bg-opacity-25"
+            name="email"
+            id="email"
+            aria-describedby="emailHelpId"
+            placeholder="abc@mail.com"
+            value={email}
+            onChange={({ target }) => setEmail(target.value)}
+          />
+        </div>
+
+        <div className="mb-3">
+          <label
+            htmlFor="pwd"
+            className="form-label text-secondary fw-semibold"
+          >
+            Password
+          </label>
+          <input
+            type="password"
+            className="form-control bg-secondary bg-opacity-25"
+            name="pwd"
+            id="pwd"
+            value={pwd}
+            onChange={({ target }) => setPwd(target.value)}
           />
         </div>
 
@@ -69,16 +140,18 @@ const Signup = () => {
 
         <button
           className="btn btn-primary fw-semibold d-block w-50 m-auto"
-          disabled
+          onClick={handleSignUp}
+          type="submit"
         >
-          <Link to="/signuptwo">Next</Link>
+          Submit
         </button>
         <p
           className="mt-3 btn fw-semibold text-secondary d-block w-100 m-auto"
-          disabled
-          style={{fontSize: ".8rem"}}
+          style={{ fontSize: ".8rem" }}
         >
-          <Link to="/signin"><u>Already have an account ? Try signing in</u></Link>
+          <Link to="/signin">
+            <u>Already have an account ? Try signing in</u>
+          </Link>
         </p>
       </form>
 
