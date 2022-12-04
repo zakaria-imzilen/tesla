@@ -1,0 +1,41 @@
+{
+    "id": 4,
+    "name": "Model S",
+    "range": 405,
+    "topSpeed": 149,
+    "zeroToSexty": 3.1,
+    "price": [
+      {
+        "bigName": "Dual Motor All Wheel-Drive",
+        "name": "Model S",
+        "price": 96590
+      },
+      {
+        "bigName": "TriMotorAllWheelDrive",
+        "name": "Model S Plaid",
+        "price": 127590
+      }
+    ],
+    "paint": [
+      { "name": "Pearl White Multi-Coat", "price": 0 },
+      { "name": "Midnight Silver Metallic", "price": 1500 },
+      { "name": "Deep Blue Metallic", "price": 1500 },
+      { "name": "Solid Black", "price": 1500 },
+      { "name": "Red Multi-Coat", "price": 2500 }
+    ],
+    "wheels": [
+      { "name": "19’’ Tempest Wheels", "price": 0, "season": "All", "range": 405 },
+      {
+        "name": "21’’ Arachnid Wheels",
+        "price": 4500,
+        "season": "All",
+        "range": 375
+      }
+    ],
+    "interior": [
+      { "name": "All Black", "price": 0 },
+      { "name": "Black and White", "price": 2000 },
+      { "name": "Cream", "price": 2000 }
+    ]
+  }
+  
