@@ -1,7 +1,7 @@
 import Footer from "./components/Footer";
 import {
   model3Img,
-  model4Img,
+  modelYImg,
   modelSImg,
   modelXImg,
 } from "./components/images";
@@ -12,7 +12,7 @@ import { useEffect } from "react";
 
 const Home = () => {
   const scrollSnap = () => {
-    createScrollSnap(document.getElementsByTagName(`main`)[0], {
+    createScrollSnap(document.getElementById("home-main"), {
       snapDestinationY: "100%",
     });
   };
@@ -22,15 +22,15 @@ const Home = () => {
   }, []);
 
   const sectionsData = [
-    { id: 1, title: "Modal 3", img: model3Img },
-    { id: 2, title: "Modal 4", img: model4Img },
-    { id: 3, title: "Modal X", img: modelXImg },
-    { id: 4, title: "Modal S", img: modelSImg },
+    { id: 1, title: "Model 3", img: model3Img, urlName: "model3" },
+    { id: 2, title: "Model Y", img: modelYImg, urlName: "modelY" },
+    { id: 3, title: "Model X", img: modelXImg, urlName: "modelX" },
+    { id: 4, title: "Model S", img: modelSImg, urlName: "modelS" },
   ];
 
   return (
-    <main>
-      <Navbar menuSte={true} />
+    <main id="home-main">
+      <Navbar menuSte={true} homePage={true} />
       {sectionsData.map((section) => (
         <Section data={section} key={section.id} />
       ))}

@@ -1,0 +1,39 @@
+{
+  "id": 3,
+  "name": "Model X",
+  "range": 272,
+  "topSpeed": 140,
+  "zeroToSexty": 5.8,
+  "price": [
+    {
+      "bigName": "Rear Wheel-Drive",
+      "name": "Model 3",
+      "price": 46990
+    },
+    {
+      "bigName": "Dual Motor All Wheel-Drive",
+      "name": "Model 3 Performance",
+      "price": 62990
+    }
+  ],
+  "paint": [
+    { "name": "Pearl White Multi-Coat", "price": 0 },
+    { "name": "Midnight Silver Metallic", "price": 0 },
+    { "name": "Deep Blue Metallic", "price": 1000 },
+    { "name": "Solid Black", "price": 1500 },
+    { "name": "Red Multi-Coat", "price": 2000 }
+  ],
+  "wheels": [
+    { "name": "18’’ Aero Wheels", "price": 0, "season": "All", "range": 272 },
+    {
+      "name": "19’’ Sport Wheels",
+      "price": 1500,
+      "season": "All",
+      "range": 267
+    }
+  ],
+  "interior": [
+    { "name": "All Black", "price": 0 },
+    { "name": "Black and White", "price": 1000 }
+  ]
+}

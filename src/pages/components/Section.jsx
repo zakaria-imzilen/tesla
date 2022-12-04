@@ -4,7 +4,10 @@ import "../../css/section.css";
 const Section = ({ data }) => {
   return (
     <section
-      style={{ backgroundImage: `url(${data.img})`, height: (data.id === 4 ? "74vh": "100vh") }}
+      style={{
+        backgroundImage: `url(${data.img})`,
+        height: data.id === 4 ? "74vh" : "100vh",
+      }}
       className="container-fluid"
       id={`sec${data.id}`}
     >
@@ -16,7 +19,7 @@ const Section = ({ data }) => {
           </Link>
         </div>
 
-        <Link className="row gap-2" to="/testdrive">
+        <Link className="row gap-2" to={`customorder/${data.urlName}`}>
           <button className="btn btn-dark" type="button" id="">
             Custom Order
           </button>

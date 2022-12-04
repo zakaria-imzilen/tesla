@@ -1,0 +1,17 @@
+article {
+    height: 100vh;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+.wheel:focus-within {
+    border-color: blue !important;
+}
+
+#interior {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}

@@ -3,7 +3,7 @@ import TeslaLogo from "./images/tesla.png";
 import "../../css/Navbar.css";
 import { Link } from "react-router-dom";
 
-const Navbar = ({ menuSte }) => {
+const Navbar = ({ menuSte, homePage }) => {
   const [menu, setMenu] = useState(false);
 
   const renderAsideClasses = () => {
@@ -13,13 +13,19 @@ const Navbar = ({ menuSte }) => {
   };
 
   return (
-    <nav className="position-fixed container-fluid py-4 px-3">
+    <nav
+      className={`position-fixed container-fluid py-2 px-3 ${
+        !homePage && "bg-light shadow-sm"
+      }`}
+    >
       <div className="w-80 container d-flex justify-content-between">
         <div className="d-flex gap-2 align-items-center">
-          <img src={TeslaLogo} alt="Tesla Logo" width={40} />
-          <span style={{ fontFamily: "Athene", fontSize: "1.5rem" }}>
-            <Link to="/">TESLA</Link>
-          </span>
+          <Link to="/">
+            <img src={TeslaLogo} alt="Tesla Logo" width={30} />
+            <span style={{ fontFamily: "Athene", fontSize: "1.2rem" }}>
+              TESLA
+            </span>
+          </Link>
         </div>
         {menuSte && (
           <>
@@ -31,9 +37,24 @@ const Navbar = ({ menuSte }) => {
               Menu
             </button>
 
-            <div id="list-toggle" className="d-flex gap-3">
+            <div id="list-toggle" className="d-flex gap-5">
+              <Link to="/customorder/model3">
+                <span className="fs-6 font-monospace fw-bold">Model 3</span>
+              </Link>
+              <Link to="/customorder/modelY">
+                <span className="fs-6 font-monospace fw-bold">Model Y</span>
+              </Link>
+              <Link to="/customorder/modelx">
+                <span className="fs-6 font-monospace fw-bold">Model X</span>
+              </Link>
+              <Link to="/customorder/models">
+                <span className="fs-6 font-monospace fw-bold">Model S</span>
+              </Link>
               <Link to="/signup">
                 <span className="fs-6 font-monospace fw-bold">Sign Up</span>
+              </Link>
+              <Link to="/signup">
+                <span className="fs-6 font-monospace fw-bold">Sign In</span>
               </Link>
             </div>
           </>
@@ -44,9 +65,24 @@ const Navbar = ({ menuSte }) => {
         <div className="d-block text-end">
           <i onClick={() => setMenu(!menu)} className="bi bi-x-circle-fill"></i>
         </div>
-        <Link to="/signup">
-          <h4 className="display-6 text-start my-5">Sign Up</h4>
+        <Link to="/customorder/model3">
+          <span className="fs-6 font-monospace fw-bold">Model 3</span>
         </Link>
+        <Link to="/customorder/modelY">
+          <span className="fs-6 font-monospace fw-bold">Model Y</span>
+        </Link>
+        <Link to="/customorder/modelx">
+          <span className="fs-6 font-monospace fw-bold">Model X</span>
+        </Link>
+        <Link to="/customorder/models">
+          <span className="fs-6 font-monospace fw-bold">Model S</span>
+        </Link>
+        <Link to="/signup">
+          <span className="fs-6 font-monospace fw-bold">Sign Up</span>
+        </Link>
+        <Link to="/signup">
+          <span className="fs-6 font-monospace fw-bold">Sign In</span>
+        </Link>{" "}
       </aside>
     </nav>
   );

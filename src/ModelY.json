@@ -1,0 +1,39 @@
+{
+    "id": 2,
+    "name": "Model Y",
+    "range": 330,
+    "topSpeed": 135,
+    "zeroToSexty": 4.8,
+    "price": [
+      {
+        "bigName": "Dual Motor All Wheel-Drive",
+        "name": "Model Y Long Range",
+        "price": 58190
+      },
+      {
+        "bigName": "TriMotorAllWheelDrive",
+        "name": "Model Y Performance",
+        "price": 62190
+      }
+    ],
+    "paint": [
+      { "name": "Pearl White Multi-Coat", "price": 0 },
+      { "name": "Midnight Silver Metallic", "price": 0 },
+      { "name": "Deep Blue Metallic", "price": 1000 },
+      { "name": "Solid Black", "price": 1500 },
+      { "name": "Red Multi-Coat", "price": 2000 }
+    ],
+    "wheels": [
+      { "name": "19’’ Gemini Wheels", "price": 0, "season": "No", "range": 330 },
+      {
+        "name": "20’’ Induction Wheels",
+        "price": 2000,
+        "season": "No",
+        "range": 318
+      }
+    ],
+    "interior": [
+      { "name": "All Black", "price": 0 },
+      { "name": "Black and White", "price": 1000 }
+    ]
+  }
