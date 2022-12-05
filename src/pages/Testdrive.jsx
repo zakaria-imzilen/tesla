@@ -3,8 +3,12 @@ import Footer from "./components/Footer";
 import { xT, yT, threeT, sT } from "./components/images";
 import Navbar from "./components/Navbar";
 import "../css/testdrive.css";
+import { useDispatch } from "react-redux";
+import { setUpTest } from "./app/testDriveSlice";
 
 const Testdrive = () => {
+  const dispatch = useDispatch();
+
   const [imgChoosen, setImgChoosen] = useState(1);
 
   const btn1 = useRef(null);
@@ -100,6 +104,27 @@ const Testdrive = () => {
       return;
     } else {
       // Everything is OKAY 👍🏻
+      dispatch(
+        setUpTest({
+          carChoosen: imgChoosen,
+          contact: {
+            fullName,
+            contactPref,
+            email,
+            country,
+            zipCode,
+          },
+        })
+      );
+      setFullName("");
+      setContactPref("email");
+      setCountry("MA");
+      setEmail("");
+      setPhone("+212");
+      setZipCode("");
+      setImgChoosen(1);
+
+      alert(`Your test drive Mr/Mme ${fullName} is well registred`);
       // Here where the FIREBASE work starts 🚀🚀🚀🚀
     }
   };
@@ -251,9 +276,7 @@ const Testdrive = () => {
                 setCountry(document.getElementById("country").value)
               }
             >
-              <option value="MA" selected>
-                Morocco
-              </option>
+              <option value="MA">Morocco</option>
               <option value="KR">South Korea</option>
               <option value="SS">South Sudan</option>
               <option value="ES">Spain</option>
@@ -296,7 +319,7 @@ const Testdrive = () => {
           <button
             type="button"
             onClick={handleSubmit}
-            className="btn bg-primary bg-opacity-80 text-light fs-6"
+            className="btn btn-primary fs-6"
           >
             Submit & Continue
           </button>

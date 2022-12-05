@@ -6,12 +6,6 @@
   width: 100% !important;
 }
 
-#testDrive main button:focus-visible,
-#testDrive main button:hover {
-  background-color: transparent !important;
-  color: gray;
-}
-
 #customOrder article img {
   cursor: pointer;
 }
