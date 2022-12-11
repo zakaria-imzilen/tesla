@@ -1,37 +1,42 @@
-import { createSlice } from "@reduxjs/toolkit";
-import users from "../../users.json";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { auth } from "../../config/fbconfig";
+
+export const signMeOut = createAsyncThunk("signMeOut", async () => {
+	await auth.signOut();
+});
 
 export const user = createSlice({
-  name: "user",
-  initialState: {
-    loggedIn: false,
-    userLoggedInData: {
-      // format: id, firstName, lastName, email
-    },
-  },
-  reducers: {
-    logMeIn: (state, { payload }) => {
-      const found = users.users.filter(
-        (usr) => usr.email === payload.email && usr.pwd === payload.pwd
-      );
-
-      if (found.length > 0) {
-        state.loggedIn = true;
-        state.userLoggedInData = found[0];
-      }
-    },
-    signMeUp: (state, { payload }) => {
-      // ⚠⚠  Just log users in
-      state.loggedIn = true;
-      state.userLoggedInData = {
-        id: 1,
-        firstName: payload.firstName,
-        lastName: payload.lastName,
-        email: payload.email,
-      };
-    },
-  },
+	name: "user",
+	initialState: {
+		loggedIn: false,
+		userLoggedInData: {
+			// format: uid, displayName, email, photoURL
+		},
+		errorSignOut: null,
+	},
+	reducers: {
+		logMeIn: (state, { payload }) => {
+			// Firebase Authentication
+			state.loggedIn = true;
+			state.userLoggedInData = {
+				uid: payload.uid,
+				displayName: payload.displayName,
+				email: payload.email,
+				photoURL: payload.photoURL,
+			};
+		},
+	},
+	extraReducers: (builder) => {
+		builder.addCase(signMeOut.rejected, (state, { payload }) => {
+			state.errorSignOut = payload;
+		});
+		builder.addCase(signMeOut.fulfilled, (state) => {
+			state.loggedIn = false;
+			state.userLoggedInData = {};
+			state.errorSignOut = null;
+		});
+	},
 });
 
 export default user.reducer;
-export const { logMeIn, signMeUp } = user.actions;
+export const { logMeIn } = user.actions;

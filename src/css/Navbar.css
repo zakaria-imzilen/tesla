@@ -1,43 +1,47 @@
 nav {
-  z-index: 1;
+	z-index: 1;
 }
 
 nav button {
-  max-height: 3rem;
+	max-height: 3rem;
 }
 
 aside {
-  overflow-y: scroll;
-  height: 100vh;
-  transition: all 0.7s ease-out;
+	overflow-y: scroll;
+	height: 100vh;
+	transition: all 0.7s ease-out;
 }
 
 aside.invisible {
-  position: absolute;
-  margin-right: -67vw;
-  margin-top: -100vh;
-  transition: all 0.7s ease-out;
+	position: absolute;
+	margin-right: -67vw;
+	margin-top: -100vh;
+	transition: all 0.7s ease-out;
+}
+
+.navbar-link {
+	cursor: pointer;
 }
 
 i.bi:hover {
-  font-size: larger;
-  transition: all 0.2s ease-in;
-  cursor: pointer;
+	font-size: larger;
+	transition: all 0.2s ease-in;
+	cursor: pointer;
 }
 .bi-x-circle-fill {
-  font-size: medium;
-  transition: all 0.2s ease-in;
+	font-size: medium;
+	transition: all 0.2s ease-in;
 }
 
 #list-toggle {
-  display: none !important;
+	display: none !important;
 }
 
 @media all and (min-width: 700px) {
-  #list-toggle {
-    display: flex !important;
-  }
-  #btn-toggler {
-    display: none !important;
-  }
+	#list-toggle {
+		display: flex !important;
+	}
+	#btn-toggler {
+		display: none !important;
+	}
 }
