@@ -1,42 +1,41 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { addDoc, collection } from "firebase/firestore";
+import { db } from "../../config/fbconfig";
+
+export const saveTestDrive = createAsyncThunk(
+	"saveTestDrive",
+	async (thunkAPI) => {
+		await addDoc(collection(db, "TestDrives"), {
+			...thunkAPI,
+			date: new Date(),
+		});
+	}
+);
 
 export const testDriveSlice = createSlice({
-  name: "testDrive",
-  initialState: {
-    carChoosen: null,
-    contact: {
-      fullName: null,
-      contactPref: null,
-      email: null,
-      country: null,
-      zipCode: null,
-    },
-  },
-  reducers: {
-    setUpTest: (state, { payload }) => {
-      switch (payload.carChoosen) {
-        case 1:
-          state.carChoosen = "Model S";
-          break;
-        case 2:
-          state.carChoosen = "Model 3";
-          break;
-        case 3:
-          state.carChoosen = "Model X";
-          break;
-        case 4:
-          state.carChoosen = "Model Y";
-          break;
-      }
-
-      state.contact.fullName = payload.fullName;
-      state.contact.contactPref = payload.contactPref;
-      state.contact.email = payload.email;
-      state.contact.country = payload.country;
-      state.contact.zipCode = payload.zipCode;
-    },
-  },
+	name: "testDrive",
+	initialState: {
+		carChoosen: null,
+		contact: {
+			fullName: null,
+			contactPref: null,
+			email: null,
+			country: null,
+			zipCode: null,
+		},
+		saving: null,
+	},
+	extraReducers: (builder) => {
+		builder.addCase(saveTestDrive.pending, (state) => {
+			state.saving = "pending";
+		});
+		builder.addCase(saveTestDrive.rejected, (state) => {
+			state.saving = false;
+		});
+		builder.addCase(saveTestDrive.fulfilled, (state) => {
+			state.saving = true;
+		});
+	},
 });
 
 export default testDriveSlice.reducer;
-export const { setUpTest } = testDriveSlice.actions;

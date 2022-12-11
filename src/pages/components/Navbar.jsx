@@ -12,11 +12,13 @@ import { auth } from "../../config/fbconfig";
 import { Dialog } from "@mui/material";
 import { StyledFirebaseAuth } from "react-firebaseui";
 import { useDispatch, useSelector } from "react-redux";
-import user, { logMeIn, signMeOut } from "../app/user";
+import { logMeIn, signMeOut } from "../app/user";
 
 const Navbar = ({ menuSte, homePage }) => {
 	const dispatch = useDispatch();
 	const user = useSelector((state) => state.user);
+	const testDrive = useSelector((state) => state.testDrive);
+	const customOrder = useSelector((state) => state.customOrder);
 
 	// Firebase Auth UI CONFIG
 	const uiConfig = {
@@ -61,6 +63,8 @@ const Navbar = ({ menuSte, homePage }) => {
 				!homePage && "bg-light shadow-sm"
 			}`}
 		>
+			{/* Alert for success & failure */}
+
 			<div className="w-80 container d-flex justify-content-between">
 				<div className="d-flex gap-2 align-items-center">
 					<Link to="/">

@@ -4,7 +4,8 @@ import { xT, yT, threeT, sT } from "./components/images";
 import Navbar from "./components/Navbar";
 import "../css/testdrive.css";
 import { useDispatch, useSelector } from "react-redux";
-import { setUpTest } from "./app/testDriveSlice";
+import { saveTestDrive } from "./app/testDriveSlice";
+import { Button } from "@mui/material";
 
 const Testdrive = () => {
 	const user = useSelector((state) => state.user);
@@ -108,17 +109,31 @@ const Testdrive = () => {
 			document.getElementById("zipCode").classList.add("border-danger");
 			return;
 		} else {
+			let carChoosen;
+			switch (imgChoosen) {
+				case 1:
+					carChoosen = "Model S";
+					break;
+				case 2:
+					carChoosen = "Model 3";
+					break;
+				case 3:
+					carChoosen = "Model X";
+					break;
+				case 4:
+					carChoosen = "Model Y";
+					break;
+			}
 			// Everything is OKAY 👍🏻
+			// Here where the FIREBASE work starts 🚀🚀🚀🚀
 			dispatch(
-				setUpTest({
-					carChoosen: imgChoosen,
-					contact: {
-						fullName,
-						contactPref,
-						email,
-						country,
-						zipCode,
-					},
+				saveTestDrive({
+					carChoosen,
+					fullName,
+					contactPref,
+					email,
+					country,
+					zipCode,
 				})
 			);
 			setFullName("");
@@ -128,9 +143,6 @@ const Testdrive = () => {
 			setPhone("+212");
 			setZipCode("");
 			setImgChoosen(1);
-
-			alert(`Your test drive Mr/Mme ${fullName} is well registred`);
-			// Here where the FIREBASE work starts 🚀🚀🚀🚀
 		}
 	};
 
@@ -321,13 +333,9 @@ const Testdrive = () => {
 						not a condition of the test drive.
 					</p>
 
-					<button
-						type="button"
-						onClick={handleSubmit}
-						className="btn btn-primary fs-6"
-					>
+					<Button variant="contained" color="primary" onClick={handleSubmit}>
 						Submit & Continue
-					</button>
+					</Button>
 				</form>
 			</main>
 
